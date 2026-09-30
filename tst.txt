@@ -1,179 +1,31 @@
-IBM Generative & Agentic AI Badge Application
-
 1. Generative AI Client or Project
 
-I used generative AI as a support tool during a security automation project.
-
-The project was focused on improving the vulnerability management process by using a Logic App to automate the ticket creation and assignment process.
-
-One of the main problems was that the vulnerability findings should not create a separate ticket for every single finding. The findings needed to be grouped in a better way based on the device group. After the grouping, the automation should create the Jira ticket and assign it to the correct responsible team.
-
-I used AI mainly to help me design the flow of the Logic App and think about how the different steps should work together.
-
-For example, I used it to help me think about:
-- how the findings should be grouped based on the device group
-- how the Logic App should check which team is responsible for each group
-- how the conditions and loops should be designed
-- how the flow should create the Jira ticket automatically
-- how the ticket should be assigned to the correct team
-- how to avoid unnecessary duplicate tickets
-- how the flow should behave if some information is missing or if one step fails
-
-I also used AI when I was comparing different ways to build the same logic. This helped me think about the flow before I started implementing everything and also helped me during troubleshooting when I needed to understand why one part of the automation was not working as expected.
-
-I did not use AI to make the final decisions by itself. I used it mainly as a technical assistant to help me design the process faster, review different implementation ideas, and improve the overall flow.
-
-The final goal of the project was to reduce manual work, make the vulnerability ticketing process more structured, group related findings together, and make sure each Jira ticket is created and assigned to the correct team automatically.
-
+I used generative AI as a support tool in a security automation project. The project was about building a Logic App flow to improve the vulnerability ticketing process. The main goal was to group vulnerability findings based on the device group, then automatically open a Jira ticket and assign it to the correct responsible team. I used AI mainly to help me design the flow, think about the order of the actions, conditions, grouping logic, loops, and different ways to handle the ticket creation and assignment. It also helped me when I was troubleshooting the flow or comparing different design options. I used it as a technical assistant to support the design, while I was still responsible for implementing, testing, and validating the final automation.
 
 2. watsonx or Strategic Partner Experience
 
-My main experience is with Microsoft security technologies and I used generative AI to support different security engineering activities.
-
-I work mainly with Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, KQL, Azure security services, Logic Apps, Jira, and MITRE ATT&CK.
-
-I used AI in different parts of my daily work.
-
-One example was the Logic App vulnerability management automation project, where I used AI to help me design the flow, especially the grouping logic, ticket creation logic, and automatic assignment to the correct team.
-
-I also used AI a lot during detection engineering work.
-
-For KQL, I normally start with the security use case first. I define what behaviour I want to detect, which data source can provide the needed information, and what the important conditions are.
-
-Then I use AI to help me think about the KQL logic, improve an existing query, suggest a better way to correlate events, or help me understand why a query is not giving the expected result.
-
-After that, I always validate the query myself. I check the tables, fields, joins, time windows, filters, and the final results in Sentinel or Defender XDR.
-
-I also used AI during MITRE ATT&CK gap analysis.
-
-I reviewed the existing detection coverage and compared it with the relevant MITRE techniques and sub-techniques. AI helped me organise the information, understand possible gaps, and think about new detection use cases that could improve the coverage.
-
-I also used AI when I was designing new security use cases. It helped me think about the attack path, the events that should be visible, the required data sources, the detection conditions, and how the use case can be tested.
-
-For me, AI is mainly a support tool. It helps me work faster, think about more options, and improve the quality of the design, but I still validate everything myself before using it.
-
+My main experience is with Microsoft security technologies, and I used generative AI to support my daily security engineering work. I work with Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, KQL, Logic Apps, Jira, and MITRE ATT&CK. I used AI to support different tasks like designing automation flows, improving KQL queries, reviewing detection logic, creating new use cases, and helping with MITRE ATT&CK gap analysis. It also helped me think about possible attack paths, what data sources can be used, and how a detection can be tested. I always reviewed and validated the technical output myself before using it.
 
 3. Application, Work Product, or Deliverable
 
-I created different work products where generative AI helped me during the design, development, validation, and improvement process.
+I created different security work products where generative AI helped me during the design, development, and validation process.
 
-One of the main examples was the Logic App vulnerability management automation.
+One of the main examples was a Logic App automation for vulnerability management. The flow was designed to group vulnerability findings based on the device group, automatically create Jira tickets, and assign each ticket to the correct responsible team. I used AI to help me think about the flow design, grouping logic, conditions, loops, ticket creation, assignment logic, and different ways to handle errors or missing values. It helped me compare different implementation options and troubleshoot parts of the flow during development.
 
-The automation was designed to process vulnerability findings, group them based on the device group, and then create Jira tickets automatically. The ticket should also be assigned to the correct team responsible for that device group.
+I also used AI in detection engineering. I used it to help me create and improve KQL queries for Microsoft Sentinel and Defender XDR. I normally start by defining the use case, what behaviour I want to detect, and what data sources are available. Then I use AI to help me think about the query structure, filtering, correlation, joins, and different ways to detect the same behaviour.
 
-I used AI to help me think about the structure of the flow, the grouping logic, conditions, loops, ticket creation, assignment logic, and possible error cases.
+After that, I always validate and test the KQL myself. I check if the tables and fields are correct, if the joins and time windows make sense, if the logic is too broad, and if the query is creating too many false positives. I also test the query in the real security platform and review the results before considering it ready.
 
-Another important area was detection engineering.
+Another important work product was a MITRE ATT&CK gap analysis. I reviewed the current detection coverage, mapped detections to techniques and sub-techniques, and looked for areas where the coverage was missing or weak. AI helped me organise the analysis and think about new detection use cases for the gaps.
 
-I used AI to help me create and improve KQL detections for Microsoft Sentinel and Defender XDR.
+For new use cases, AI also helped me think about the attack behaviour, required data source, useful events, detection conditions, possible false positives, and how the use case should be tested.
 
-Normally, I start by defining the use case and the exact behaviour I want to detect. Then I check the available data sources and decide which events are needed.
-
-AI helps me during this stage by giving me ideas for the query structure, correlation logic, filtering, and different approaches to detect the same behaviour.
-
-After that, I test the KQL myself.
-
-I check that the tables and fields are correct, the joins make sense, the time windows are correct, and the query is not too broad or too noisy.
-
-I also review the query results and compare them with the expected behaviour before I consider the detection ready.
-
-I used AI in MITRE ATT&CK gap analysis as well.
-
-I reviewed the current detection coverage and mapped the existing detections to MITRE techniques and sub-techniques. After that, I looked for areas where the coverage was weak or missing.
-
-AI helped me organise the analysis and think about possible use cases for the missing areas.
-
-For the new use cases, I also used AI to help me think about:
-- what the attack behaviour looks like
-- what data source is needed
-- what events can show the behaviour
-- what conditions should be included
-- how the use case can be tested
-- what could create false positives
-
-The final work products included:
-- Logic App automation design
-- Jira ticketing automation flow
-- KQL detections
-- improved existing KQL queries
-- MITRE ATT&CK gap analysis
-- new security use cases
-- testing and validation of detections
-- technical documentation
-
-AI helped me save time and think about the work from different angles, but the final technical validation was always done by me.
-
+The final work products included the Logic App automation design, Jira ticketing flow, KQL detections, improved existing queries, MITRE ATT&CK gap analysis, new security use cases, testing steps, and technical documentation. AI helped me work faster and look at different options, but I always did the final testing and validation myself.
 
 4. Approach, Methods, and Tools
 
-My approach is normally very practical.
-
-I first try to understand the problem clearly before using AI.
-
-For the Logic App automation project, I first understood how the vulnerability management process should work from start to finish.
-
-I defined how the findings should be grouped, how the correct team should be identified, when a Jira ticket should be created, and how the ticket should be assigned.
-
-After that, I used AI to help me design the Logic App flow and compare different ways to implement the logic.
-
-For detection engineering, I normally start from the use case.
-
-I define:
-- what activity I want to detect
-- what the attack behaviour should look like
-- what data sources are available
-- what information I can use for correlation
-- what could create false positives
-
-Then I use AI to help me think about the KQL logic or improve an existing query.
-
-I never use the first generated query directly.
-
-I review the query, check the syntax, check the tables and fields, run it in Sentinel or Defender XDR, and then review the results.
-
-If the query is too noisy or does not detect the expected behaviour, I change the logic and test it again.
-
-For MITRE ATT&CK gap analysis, I reviewed the existing detection coverage and compared it with the relevant techniques and sub-techniques.
-
-AI helped me organise the work and think about possible detections for the missing areas.
-
-For new use cases, I also used AI to think about the full detection flow from the attack behaviour until the final KQL and testing steps.
-
-The main tools I used were Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, KQL, Logic Apps, Jira, Azure security services, and MITRE ATT&CK.
-
-My normal process is:
-
-understand the problem, design the idea, use AI to support the work, review the output, test it, improve it, and validate the final result.
-
+My approach is normally simple and practical. I first understand the problem and define what I want to achieve. For automation, I map the process first, then use AI to help me design the Logic App flow, conditions, grouping logic, and ticket assignment. For detections, I start with the use case, attack behaviour, and available data sources. Then I use AI to help me improve the KQL logic or think about better correlation options. I do not use the first result directly. I review it, test it in Sentinel or Defender XDR, check the tables, fields, joins, filters, time range, and results, then improve it if needed. I used Microsoft Sentinel, Defender XDR, Entra ID, KQL, Logic Apps, Jira, Azure security services, and MITRE ATT&CK.
 
 5. Management of Risks and AI Ethical Concerns
 
-When I use generative AI for security work, I always treat the output as a suggestion and not as a final answer.
-
-One of the main risks is that AI can give technically incorrect information.
-
-For example, it can suggest a KQL field that does not exist, use the wrong table, create a weak correlation, or suggest a logic that does not match the real environment.
-
-Because of this, I always validate the technical result myself.
-
-For KQL, I test the query directly in Sentinel or Defender XDR.
-
-I check the tables, fields, joins, filters, time windows, and the results.
-
-I also make sure the query is not creating unnecessary false positives and that it is really detecting the behaviour that I want.
-
-For MITRE ATT&CK mapping, I check that the technique or sub-technique really matches the behaviour of the detection.
-
-For new use cases, I review both the attacker side and defender side to make sure the logic is realistic and useful.
-
-For automation, like the Logic App vulnerability management project, I test the conditions, grouping logic, Jira ticket creation, and assignment before depending on the automation.
-
-This is important because a wrong condition can create the wrong ticket or send it to the wrong team.
-
-I also keep human control for important security decisions.
-
-AI should support the engineer, but it should not make high-impact decisions by itself.
-
-For example, I would not depend on AI alone to decide that an account is compromised, isolate a device, close an incident, or perform containment.
-
-My approach is simple: use AI to support the work, validate the technical output, test everything important, keep human control, and make sure the final result is correct before using it.
+I always treat AI output as a suggestion and not as a final answer. In security work, AI can give wrong technical details, for example a wrong KQL field, table, join, or detection logic. Because of this, I always validate the output myself. I test KQL in Sentinel or Defender XDR, review the results, and check if the detection is really matching the expected behaviour. For MITRE mapping, I check that the technique really matches the use case. For automation, I test the conditions, grouping logic, ticket creation, and assignment before using the flow. I also keep human control for important security decisions. AI can support the work, but it should not make high-impact decisions by itself. My approach is to use AI for support, test the result, validate it, and keep the final decision with the engineer.
