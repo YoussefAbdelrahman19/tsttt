@@ -1,0 +1,85 @@
+
+1. Generative AI Client or Project
+
+I used generative AI in my daily security engineering work to support different SOC and detection engineering tasks.
+
+The main idea was to save time in tasks that normally need a lot of manual work, like analysing security events, checking possible attack scenarios, improving KQL queries, writing investigation steps, and preparing technical documentation.
+
+For example, when I work on an incident in Microsoft Sentinel or Defender XDR, I can use AI to help me organise the information, understand possible relations between different events, and suggest investigation steps. I also use it when I need to improve a detection query or explain a technical security issue in a simpler way.
+
+The AI is only supporting my work. I do not trust the output directly. I always check the real logs, security alerts, product behaviour, and official documentation before I use the result or make any security decision.
+
+
+2. watsonx or Strategic Partner Experience
+
+My main experience is with Microsoft security products, which are part of the strategic partner technology ecosystem.
+
+I work with Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, Azure security services, KQL, and Logic Apps. I used generative AI together with these technologies to support security analysis, detection engineering, investigation, and documentation.
+
+For example, I used AI to help explain complex security events, improve KQL logic, suggest investigation steps, organise incident timelines, and create clearer technical summaries.
+
+I also used AI to compare different possible approaches before I started implementing a detection or automation.
+
+The important part for me was always validation. If AI suggested a query, field, table, action, or security recommendation, I checked it against the real environment and official documentation before using it.
+
+I used AI as an assistant to help me work faster, but not as a replacement for technical validation or human decision making.
+
+
+3. Application, Work Product, or Deliverable
+
+I created different AI-assisted work products related to security engineering, SOC operations, detection engineering, and incident investigation.
+
+One important use case was KQL detection development. I usually start by defining what I want to detect, what attack behaviour I am looking for, and which data sources are available. I then use generative AI to help me think about the logic, improve the query structure, and check if there is a better way to correlate the events.
+
+After that, I test the query myself. I check if the tables and fields really exist, if the join logic is correct, if the time range makes sense, and if the query creates too many false positives. I never use a generated KQL query directly without testing it.
+
+I also used AI during investigations. For example, if I have sign-in events, Defender alerts, endpoint activity, and identity information, AI can help me organise the events into a clear timeline and suggest what should be checked next. This makes the investigation easier to follow, especially when there are many different signals.
+
+Another area was documentation. I used AI to help me write incident summaries, technical explanations, detection descriptions, customer recommendations, and investigation steps. This was useful because sometimes the technical information is very detailed, but the customer or another team needs a simple explanation.
+
+I also used AI to support automation ideas. For example, I reviewed repetitive SOC activities and checked where Logic Apps or workflow automation could help. I was careful not to automate high-impact actions without validation.
+
+The final work products included improved KQL detections, investigation steps, technical documentation, incident summaries, security recommendations, and ideas for SOC automation.
+
+AI helped me prepare and analyse things faster, but I was always responsible for checking the final result and deciding if it was correct and safe to use.
+
+
+4. Approach, Methods, and Tools
+
+My approach was simple and practical.
+
+First, I defined the problem clearly. I tried to understand what I wanted to achieve, what security data I had, what the expected result should be, and what limitations existed in the environment.
+
+Then I gave the AI enough context about the problem. I did not just ask a very general question. For example, for KQL I explained the security scenario, the expected attack behaviour, the data source, and what I wanted to correlate.
+
+After I received the first result, I reviewed it carefully. If something was wrong, unclear, or too generic, I changed the prompt and asked for a better version.
+
+For technical security work, I always tested the output. For KQL, I tested the query in Sentinel or Defender. For investigation steps, I compared the suggestions with the real telemetry. For security recommendations, I checked the product behaviour and official documentation.
+
+The main tools I used were Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, Azure security services, KQL, and Logic Apps.
+
+I used generative AI mainly for analysis, brainstorming, query improvement, investigation support, documentation, and explaining complex topics in a simpler way.
+
+My normal process was:
+
+define the problem, use AI for support, review the result, test it, improve it, and then use the final validated version.
+
+
+5. Management of Risks and AI Ethical Concerns
+
+When I use generative AI, I always think about the risks before using the output.
+
+One risk is that AI can give an incorrect answer or invent technical details. This is especially important in security because one wrong field name, query, or recommendation can give a wrong result.
+
+Because of this, I never treat AI output as a trusted source by itself. I check important information against the real logs, the security product, and official documentation.
+
+Another important risk is data privacy. Security investigations can include user information, IP addresses, device information, alerts, or customer data. I try to minimise the information that I provide to AI and avoid sharing sensitive or confidential data when it is not needed.
+
+I also avoid using AI alone for high-impact security actions. For example, AI should not independently decide to disable an account, isolate a device, block a user, close an incident, or perform another containment action.
+
+Human review is still important for these decisions.
+
+I also try to make the use of AI transparent. If AI helps me create a query, analysis, or recommendation, I still review and understand the result before I use it.
+
+My approach is based on simple principles: protect the data, validate the output, keep human control, and do not blindly trust AI.
+
