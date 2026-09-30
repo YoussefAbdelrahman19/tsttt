@@ -1,31 +1,866 @@
-1. Generative AI Client or Project
 
-I used generative AI as a support tool in a security automation project. The project was about building a Logic App flow to improve the vulnerability ticketing process. The main goal was to group vulnerability findings based on the device group, then automatically open a Jira ticket and assign it to the correct responsible team. I used AI mainly to help me design the flow, think about the order of the actions, conditions, grouping logic, loops, and different ways to handle the ticket creation and assignment. It also helped me when I was troubleshooting the flow or comparing different design options. I used it as a technical assistant to support the design, while I was still responsible for implementing, testing, and validating the final automation.
 
-2. watsonx or Strategic Partner Experience
+This deliverable is for a practical Security Automation and Detection Engineering project.
 
-My main experience is with Microsoft security technologies, and I used generative AI to support my daily security engineering work. I work with Microsoft Sentinel, Defender XDR, Defender for Endpoint, Entra ID, KQL, Logic Apps, Jira, and MITRE ATT&CK. I used AI to support different tasks like designing automation flows, improving KQL queries, reviewing detection logic, creating new use cases, and helping with MITRE ATT&CK gap analysis. It also helped me think about possible attack paths, what data sources can be used, and how a detection can be tested. I always reviewed and validated the technical output myself before using it.
+The purpose is to create a complete, professional PowerPoint presentation that explains the work in a clear and technical way, including:
 
-3. Application, Work Product, or Deliverable
+- Vulnerability Management Automation using Logic Apps and Jira
+- Detection Engineering using Microsoft Sentinel, Defender XDR, and KQL
+- MITRE ATT&CK gap analysis
+- New detection use case design
+- Testing, validation, tuning, and operational controls
+- The role of generative AI as a support tool during design, engineering, troubleshooting, and documentation
 
-I created different security work products where generative AI helped me during the design, development, and validation process.
+The presentation should reflect real security engineering work and should be suitable for review by a Security Manager, Security Architect, Detection Engineering Lead, SOC Architect, or technical reviewer.
 
-One of the main examples was a Logic App automation for vulnerability management. The flow was designed to group vulnerability findings based on the device group, automatically create Jira tickets, and assign each ticket to the correct responsible team. I used AI to help me think about the flow design, grouping logic, conditions, loops, ticket creation, assignment logic, and different ways to handle errors or missing values. It helped me compare different implementation options and troubleshoot parts of the flow during development.
+The presentation must explain:
 
-I also used AI in detection engineering. I used it to help me create and improve KQL queries for Microsoft Sentinel and Defender XDR. I normally start by defining the use case, what behaviour I want to detect, and what data sources are available. Then I use AI to help me think about the query structure, filtering, correlation, joins, and different ways to detect the same behaviour.
+- WHAT was designed or implemented
+- WHY it was needed
+- HOW the solution works
+- HOW the logic was designed
+- HOW it was tested
+- HOW the final output was validated
+- WHAT can fail
+- HOW failures are handled
+- WHAT security and business value the solution provides
 
-After that, I always validate and test the KQL myself. I check if the tables and fields are correct, if the joins and time windows make sense, if the logic is too broad, and if the query is creating too many false positives. I also test the query in the real security platform and review the results before considering it ready.
+The presentation should not look like a generic AI-generated presentation.
 
-Another important work product was a MITRE ATT&CK gap analysis. I reviewed the current detection coverage, mapped detections to techniques and sub-techniques, and looked for areas where the coverage was missing or weak. AI helped me organise the analysis and think about new detection use cases for the gaps.
+It should look like a real security engineering design and implementation deliverable.
 
-For new use cases, AI also helped me think about the attack behaviour, required data source, useful events, detection conditions, possible false positives, and how the use case should be tested.
+======================================================================
+2. MAIN ICA PROMPT
+======================================================================
 
-The final work products included the Logic App automation design, Jira ticketing flow, KQL detections, improved existing queries, MITRE ATT&CK gap analysis, new security use cases, testing steps, and technical documentation. AI helped me work faster and look at different options, but I always did the final testing and validation myself.
+Create a complete professional PowerPoint presentation for a Security Automation and Detection Engineering project.
 
-4. Approach, Methods, and Tools
+The presentation must be detailed, practical, technically strong, and suitable for review by a Security Manager, Security Architect, Detection Engineering Lead, SOC Architect, or technical reviewer.
 
-My approach is normally simple and practical. I first understand the problem and define what I want to achieve. For automation, I map the process first, then use AI to help me design the Logic App flow, conditions, grouping logic, and ticket assignment. For detections, I start with the use case, attack behaviour, and available data sources. Then I use AI to help me improve the KQL logic or think about better correlation options. I do not use the first result directly. I review it, test it in Sentinel or Defender XDR, check the tables, fields, joins, filters, time range, and results, then improve it if needed. I used Microsoft Sentinel, Defender XDR, Entra ID, KQL, Logic Apps, Jira, Azure security services, and MITRE ATT&CK.
+The presentation should explain not only WHAT was done, but also WHY it was needed, HOW it was designed, HOW it works, HOW it was validated, what risks were considered, and what value it provides.
 
-5. Management of Risks and AI Ethical Concerns
+Create approximately 16–20 slides.
 
-I always treat AI output as a suggestion and not as a final answer. In security work, AI can give wrong technical details, for example a wrong KQL field, table, join, or detection logic. Because of this, I always validate the output myself. I test KQL in Sentinel or Defender XDR, review the results, and check if the detection is really matching the expected behaviour. For MITRE mapping, I check that the technique really matches the use case. For automation, I test the conditions, grouping logic, ticket creation, and assignment before using the flow. I also keep human control for important security decisions. AI can support the work, but it should not make high-impact decisions by itself. My approach is to use AI for support, test the result, validate it, and keep the final decision with the engineer.
+The presentation must include:
+
+- Architecture diagrams
+- Process flow diagrams
+- Decision points
+- Technical design explanations
+- Detection engineering lifecycle
+- KQL design methodology
+- MITRE ATT&CK coverage methodology
+- Testing and validation steps
+- Risk and control considerations
+- Business and security value
+- Clear speaker notes
+- Simple professional English
+- No generic filler content
+
+The project has three main technical areas:
+
+1. Vulnerability Management Automation using Logic Apps and Jira
+2. Detection Engineering using Microsoft Sentinel, Defender XDR, and KQL
+3. MITRE ATT&CK Gap Analysis and New Detection Use Case Development
+
+A fourth supporting area should explain how generative AI helped the engineering process while final validation and implementation remained with the security engineer.
+
+======================================================================
+3. PROJECT AREA 1 – VULNERABILITY MANAGEMENT AUTOMATION
+======================================================================
+
+Description:
+
+The first part of the project is a vulnerability management automation workflow.
+
+The main goal is to reduce manual ticket handling and avoid creating unnecessary individual tickets for every vulnerability finding.
+
+Instead of opening many separate tickets, vulnerability findings should be grouped based on the device group.
+
+The automation should then identify the responsible team and automatically create or update the related Jira ticket.
+
+The solution should explain the full Logic App workflow from receiving the vulnerability findings until the final Jira ticket is created or updated.
+
+The presentation must explain WHY this approach is useful.
+
+Key reasons include:
+
+- Reducing manual work
+- Reducing ticket noise
+- Avoiding unnecessary duplicate tickets
+- Grouping related vulnerability findings together
+- Improving ownership
+- Making remediation easier for infrastructure teams
+- Making tickets more readable and actionable
+- Improving consistency in the vulnerability management process
+- Reducing the chance of findings being missed
+- Improving operational efficiency
+
+The Logic App workflow should include the following stages:
+
+1. Receive vulnerability findings
+2. Validate required information
+3. Identify the affected device
+4. Identify the related device group
+5. Group related findings based on the device group
+6. Identify the responsible team
+7. Check if a related Jira ticket already exists
+8. If a ticket exists, update it where appropriate
+9. If no ticket exists, create a new Jira ticket
+10. Assign the ticket to the correct responsible team
+11. Add the relevant vulnerability information
+12. Log the result
+13. Handle missing or incorrect information
+14. Handle Jira or Logic App failures
+15. Support testing and validation before production
+
+Create a visual flow similar to:
+
+Vulnerability Findings
+        |
+        v
+Validate Input
+        |
+        v
+Identify Device
+        |
+        v
+Identify Device Group
+        |
+        v
+Group Related Findings
+        |
+        v
+Map Device Group to Responsible Team
+        |
+        v
+Check Existing Jira Ticket
+        |
+        v
+Existing Ticket?
+   /            \
+ Yes             No
+  |               |
+  v               v
+Update Ticket    Create New Ticket
+  |               |
+  \               /
+        v
+Assign Responsible Team
+        |
+        v
+Add Vulnerability Details
+        |
+        v
+Log Result
+        |
+        v
+Monitoring / Error Handling
+
+The presentation should explain the design decisions behind:
+
+- Grouping strategy
+- Device group logic
+- Responsible team mapping
+- Duplicate ticket prevention
+- Ticket lifecycle
+- Error handling
+- Retry logic
+- Logging
+- Failure monitoring
+- Validation
+- Manual review where needed
+
+Also explain edge cases such as:
+
+- Device group is missing
+- Responsible team mapping does not exist
+- Jira ticket creation fails
+- Existing ticket lookup fails
+- Required vulnerability information is missing
+- Duplicate ticket is detected
+- Logic App action times out
+- Unexpected data format is received
+
+Do not invent Jira fields, Logic App connector fields, APIs, schema names, or implementation details that are not provided.
+
+If exact technical values are unknown, clearly label them as:
+
+"Implementation-dependent and must be validated in the target environment."
+
+======================================================================
+4. PROJECT AREA 2 – DETECTION ENGINEERING
+======================================================================
+
+Description:
+
+The second part of the project is focused on security detection engineering.
+
+The goal is to design better security use cases and KQL detections for Microsoft Sentinel and Defender XDR.
+
+The presentation should explain that detection engineering should start from attacker behaviour and security objectives, not only from writing a KQL query.
+
+Create a clear detection engineering lifecycle:
+
+Security Objective
+        |
+        v
+Attack Behaviour
+        |
+        v
+Required Telemetry
+        |
+        v
+Data Source Validation
+        |
+        v
+Detection Logic
+        |
+        v
+KQL Development
+        |
+        v
+Testing
+        |
+        v
+False Positive Analysis
+        |
+        v
+Tuning
+        |
+        v
+MITRE ATT&CK Mapping
+        |
+        v
+Production Deployment
+        |
+        v
+Monitoring and Continuous Improvement
+
+For every detection use case, the presentation should explain:
+
+- Use case name
+- Security objective
+- Attacker behaviour
+- Why the use case is important
+- Required data sources
+- Required events
+- Important entities
+- Correlation logic
+- Time window
+- KQL approach
+- MITRE ATT&CK mapping
+- False positives
+- Testing method
+- Tuning requirements
+- Recommended severity
+- Limitations
+- Production readiness checks
+
+Explain strong detection design principles such as:
+
+- Multi-stage correlation
+- Identity + endpoint correlation
+- Authentication + privilege change correlation
+- Suspicious activity followed by persistence
+- Cloud control-plane activity followed by security-impacting changes
+- Strong entity correlation
+- Time-bounded event chaining
+- Behaviour-based detections instead of simple threshold-only detections
+
+Prefer strong identifiers where they are available, including:
+
+- AccountObjectId
+- UPN
+- DeviceId
+- SessionId
+- CorrelationId
+- IP address
+- SHA256
+- AppId
+- ServicePrincipalId
+- ResourceId
+
+Explain why stable identifiers are better than weak correlation fields.
+
+The presentation should also explain join logic:
+
+- Use inner joins when both stages are required for the detection
+- Use leftouter only when the second dataset is enrichment
+- Avoid broad joins that create weak correlation
+- Keep time windows realistic
+- Avoid correlating events only because they happened close together
+
+For KQL:
+
+- Do not invent tables
+- Do not invent columns
+- Do not invent KQL functions
+- Do not invent schema
+- Do not assume data availability
+- Clearly mark anything that requires validation
+- Explain every join
+- Explain important filters
+- Explain time windows
+- Explain tuning logic
+- Explain false-positive handling
+
+If KQL examples are included, clearly label them as:
+
+"Example logic only – table and field availability must be validated in the target environment."
+
+======================================================================
+5. PROJECT AREA 3 – MITRE ATT&CK GAP ANALYSIS
+======================================================================
+
+Description:
+
+The third part of the project is a MITRE ATT&CK detection gap analysis.
+
+The purpose is not only to add MITRE tags to existing rules.
+
+The goal is to understand what attacker behaviour is actually covered, what is only partially covered, what is not covered, and what cannot currently be detected because required telemetry is missing.
+
+Create a clear methodology:
+
+Existing Detection Rules
+        |
+        v
+Review Actual Detection Behaviour
+        |
+        v
+Validate Data Sources
+        |
+        v
+Map to MITRE Technique / Sub-technique
+        |
+        v
+Assess Detection Coverage
+        |
+        v
+Identify Gaps
+        |
+        v
+Prioritize Useful Detection Opportunities
+        |
+        v
+Design New Use Cases
+        |
+        v
+Develop KQL
+        |
+        v
+Test
+        |
+        v
+Tune
+        |
+        v
+Deploy
+        |
+        v
+Review Continuously
+
+Use four coverage categories:
+
+1. Covered
+2. Partially Covered
+3. Not Covered
+4. Not Detectable with Current Telemetry
+
+The presentation must clearly explain the difference between:
+
+MITRE mapping
+
+and
+
+actual detection coverage
+
+A detection should not be considered "covered" only because it has a MITRE ATT&CK tag.
+
+The rule must actually detect behaviour related to the technique or sub-technique.
+
+For each MITRE technique or sub-technique, review:
+
+- Existing detection
+- Detection behaviour
+- Required telemetry
+- Actual available telemetry
+- Coverage level
+- Detection gap
+- Proposed new use case
+- Priority
+- Testing requirement
+- Validation requirement
+- Limitations
+
+Create a MITRE coverage table with columns such as:
+
+Technique
+Sub-technique
+Existing Detection
+Required Telemetry
+Coverage Status
+Detection Gap
+Proposed Use Case
+Priority
+Validation Required
+
+Also explain how to prioritize new detections based on:
+
+- Realistic attacker behaviour
+- Available telemetry
+- Existing Microsoft security coverage
+- Detection value
+- False-positive risk
+- Implementation effort
+- Operational impact
+- Ability to validate the detection
+
+Do not create detection use cases only to increase MITRE coverage numbers.
+
+The use case must provide real defensive value.
+
+======================================================================
+6. PROJECT AREA 4 – GENERATIVE AI SUPPORT
+======================================================================
+
+Description:
+
+Generative AI was used as an engineering support tool during the project.
+
+The presentation should clearly explain that AI did not replace the engineer and did not make the final security decisions.
+
+AI supported areas such as:
+
+- Logic App flow design
+- Thinking about alternative flow options
+- Reviewing conditions and process steps
+- Troubleshooting automation logic
+- KQL design ideas
+- KQL improvement
+- Query troubleshooting
+- Detection use case brainstorming
+- Attack path thinking
+- MITRE ATT&CK gap analysis support
+- Documentation
+- Presentation preparation
+- Technical explanation
+
+The final implementation, validation, testing, tuning, and production decision remained with the security engineer.
+
+Explain the working model:
+
+Problem Definition
+        |
+        v
+AI-Assisted Design
+        |
+        v
+Engineer Review
+        |
+        v
+Technical Testing
+        |
+        v
+Validation
+        |
+        v
+Tuning
+        |
+        v
+Final Engineering Decision
+
+Also explain that AI output should not be trusted blindly.
+
+Examples of possible AI mistakes:
+
+- Wrong KQL field
+- Wrong table
+- Weak join
+- Incorrect logic
+- Incorrect MITRE mapping
+- Unrealistic time window
+- Incorrect assumption about connectors
+- Incorrect assumption about available telemetry
+- Incomplete error handling
+
+The presentation should explain how these risks are controlled through testing and human validation.
+
+======================================================================
+7. RISK, SECURITY, AND HUMAN VALIDATION
+======================================================================
+
+Create a dedicated slide for risks and controls.
+
+Include:
+
+- Technical validation
+- Schema validation
+- KQL testing
+- Detection behaviour validation
+- False-positive testing
+- Logic App testing
+- Jira workflow testing
+- Duplicate ticket validation
+- Error handling
+- Retry logic
+- Human review
+- Production approval
+- Monitoring after deployment
+- Controlled use of AI-generated suggestions
+
+Explain that AI should not independently perform high-impact actions such as:
+
+- Disable an account
+- Isolate a device
+- Block a user
+- Close an incident
+- Contain an endpoint
+- Change a production security policy
+
+unless the action has predefined validated logic and appropriate human or operational approval.
+
+======================================================================
+8. BUSINESS AND SECURITY VALUE
+======================================================================
+
+Create a slide explaining the value of the project.
+
+Security value:
+
+- Better detection quality
+- Better correlation
+- More realistic use cases
+- Better MITRE visibility
+- Better detection coverage
+- Better testing
+- Better tuning
+- Reduced weak detections
+- Improved operational consistency
+
+Operational value:
+
+- Reduced manual ticket creation
+- Reduced duplicate tickets
+- Better vulnerability ownership
+- Easier remediation
+- Better ticket quality
+- Faster engineering
+- Better documentation
+- Easier maintenance
+- More consistent workflow
+
+Engineering value:
+
+- More structured design
+- Better review process
+- Better validation
+- Better use case documentation
+- Reusable methodology
+- Easier troubleshooting
+- Better collaboration between security and infrastructure teams
+
+======================================================================
+9. RECOMMENDED SLIDE STRUCTURE
+======================================================================
+
+Slide 1 – Title
+Security Automation & Detection Engineering
+
+Slide 2 – Executive Summary
+Explain the project in simple terms and summarize the three main technical areas.
+
+Slide 3 – Problems and Challenges
+Explain the problems:
+- Manual vulnerability ticket handling
+- Ticket noise
+- Duplicate tickets
+- Ownership issues
+- Detection gaps
+- Weak or incomplete MITRE visibility
+- Manual KQL engineering effort
+
+Slide 4 – Solution Overview
+High-level architecture showing:
+- Vulnerability source
+- Logic Apps
+- Jira
+- Microsoft Sentinel
+- Defender XDR
+- KQL
+- MITRE ATT&CK
+- AI-assisted engineering
+
+Slide 5 – Vulnerability Automation Architecture
+Show system components and flow.
+
+Slide 6 – Detailed Logic App Workflow
+Show the full decision flow.
+
+Slide 7 – Grouping and Team Assignment Logic
+Explain:
+- Device group
+- Grouping
+- Responsible team mapping
+- Ticket creation
+- Ticket assignment
+
+Slide 8 – Duplicate Prevention and Ticket Lifecycle
+Explain how duplicate tickets should be avoided and how existing tickets are handled.
+
+Slide 9 – Error Handling and Monitoring
+Explain:
+- Missing data
+- Mapping failure
+- Jira failure
+- Logic App failure
+- Logging
+- Retry
+- Monitoring
+
+Slide 10 – Detection Engineering Methodology
+Show the full lifecycle from attack behaviour to production monitoring.
+
+Slide 11 – Detection Rule Design
+Explain how rules are built:
+- Objective
+- Data source
+- Entities
+- Correlation
+- Time windows
+- KQL
+- Validation
+
+Slide 12 – KQL Validation and Tuning
+Explain:
+- Table validation
+- Field validation
+- Join validation
+- False positives
+- Performance
+- Tuning
+
+Slide 13 – Example Detection Use Cases
+Provide structured examples without inventing unsupported schemas.
+
+Slide 14 – MITRE ATT&CK Gap Analysis
+Explain the methodology.
+
+Slide 15 – MITRE Coverage Matrix
+Show:
+- Covered
+- Partially Covered
+- Not Covered
+- Not Detectable
+
+Slide 16 – New Detection Use Case Development
+Explain how gaps become new detections.
+
+Slide 17 – AI-Assisted Engineering Approach
+Explain how generative AI supported the work.
+
+Slide 18 – Security, Risk, and Human Validation
+Explain controls.
+
+Slide 19 – Business and Security Value
+Summarize benefits.
+
+Slide 20 – Next Steps and Continuous Improvement
+Include:
+- Production tuning
+- Monitoring
+- Continuous MITRE gap review
+- New detections
+- Automation improvement
+- Feedback from operational teams
+- Documentation updates
+
+======================================================================
+10. VISUAL REQUIREMENTS
+======================================================================
+
+The presentation should be visually strong.
+
+Use:
+
+- Architecture diagrams
+- Flowcharts
+- Decision diamonds
+- Process arrows
+- Tables
+- Lifecycle diagrams
+- MITRE matrices
+- Validation checklists
+- Technical callouts
+- Short bullets
+- Clear section headers
+
+Avoid:
+
+- Large blocks of text
+- Generic stock-style content
+- Repetitive slides
+- Marketing-heavy wording
+- Unclear diagrams
+- Unvalidated technical claims
+
+Every slide should answer at least one of these:
+
+- What is this?
+- Why is it needed?
+- How does it work?
+- How is it tested?
+- What can fail?
+- How is failure handled?
+- What value does it provide?
+
+======================================================================
+11. SPEAKER NOTES REQUIREMENT
+======================================================================
+
+Create short speaker notes for every slide.
+
+The notes should help the presenter explain:
+
+- The reason for the slide
+- The technical logic
+- Why the design decision was made
+- Important limitations
+- Testing or validation requirements
+- Operational impact
+
+Speaker notes should use simple professional English.
+
+======================================================================
+12. TECHNICAL QUALITY REQUIREMENTS
+======================================================================
+
+Before finalizing the presentation, verify:
+
+- Logic App flow is technically consistent
+- Jira workflow is clear
+- Device group logic is clear
+- Duplicate ticket prevention is explained
+- Responsible team assignment is explained
+- Error handling is included
+- Monitoring is included
+- Detection engineering lifecycle is realistic
+- KQL assumptions are clearly marked
+- No fake tables or fields are created
+- MITRE mappings are behaviour-based
+- MITRE coverage is not treated as tag coverage
+- Testing is included
+- Validation is included
+- False-positive analysis is included
+- Tuning is included
+- AI role is clearly explained
+- Human control is clearly explained
+- Presentation reflects a real security engineering project
+
+======================================================================
+13. FINAL OUTPUT REQUIREMENT
+======================================================================
+
+If PowerPoint generation is supported:
+
+Generate the complete .pptx file.
+
+The presentation should include:
+
+- Final slide content
+- Architecture diagrams
+- Logic App flow diagram
+- Detection engineering lifecycle
+- MITRE gap analysis flow
+- MITRE coverage matrix
+- Technical tables
+- Speaker notes
+
+If PowerPoint file generation is not supported:
+
+Generate the complete slide-by-slide presentation content with:
+
+- Slide title
+- Slide content
+- Diagram description
+- Flow description
+- Table content
+- Speaker notes
+- Design recommendation
+
+The output must be complete enough to directly convert into PowerPoint without requiring major rewriting.
+
+======================================================================
+14. SECOND PROMPT – QUALITY REVIEW
+======================================================================
+
+After generating the presentation, review it again as:
+
+- Principal Detection Engineer
+- Security Architect
+- SOC Architect
+- Incident Response Lead
+- Senior Security Engineering Manager
+
+Review the full presentation and look for:
+
+- Weak logic
+- Generic statements
+- Missing technical detail
+- Weak detection correlation
+- Weak MITRE mapping
+- Missing testing
+- Missing validation
+- Missing false-positive analysis
+- Unrealistic automation logic
+- Missing duplicate handling
+- Missing error handling
+- Unsupported KQL assumptions
+- Missing monitoring
+- Missing operational ownership
+- Weak explanation of WHY and HOW
+
+Improve every weak area.
+
+For every major design decision, ensure the presentation explains:
+
+- What it does
+- Why it is needed
+- How it works
+- How it is tested
+- What can fail
+- How the failure is handled
+- What security value it provides
+- What operational value it provides
+
+Make the diagrams clearer.
+
+Make the flow easier to understand.
+
+Make the technical explanations stronger.
+
+Remove generic AI language.
+
+The final version should be strong enough to be reviewed by a senior security architect, detection engineering lead, or security engineering manager.
+
+======================================================================
+15. SHORT ASSET DESCRIPTION FOR ICA
+======================================================================
+
+Name:
+Security Automation & Detection Engineering Deliverable
+
+Description:
+A practical security engineering deliverable covering vulnerability management automation with Logic Apps and Jira, Microsoft Sentinel and Defender XDR detection engineering, KQL design and validation, MITRE ATT&CK gap analysis, and AI-assisted engineering. The deliverable includes architecture, process flows, detection methodology, validation steps, risk controls, and continuous improvement guidance.
+
+Purpose:
+To provide a reusable and reviewable security engineering design that shows how automation, detection engineering, MITRE ATT&CK analysis, and generative AI can be used together while keeping technical validation and final security decisions under human control.
+
+======================================================================
+16. SHORT TEAM DESCRIPTION
+======================================================================
+
+Security Automation & Detection Engineering
+
+This team is used to develop and review practical security engineering use cases, including Logic App automation, vulnerability ticketing workflows, Microsoft Sentinel and Defender XDR detections, KQL validation, MITRE ATT&CK gap analysis, and AI-assisted engineering design.
